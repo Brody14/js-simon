@@ -23,7 +23,7 @@ setTimeout (function () {
     let fourthUserNumber = parseInt(prompt('Inserisci il quarto numero'));
     let fifthUserNumber = parseInt(prompt('Inserisci il quinto numero'));
     console.log(firstUserNumber, secondUserNumber, thirdUserNumber, fourthUserNumber, fifthUserNumber);
-}, 300)
+}, 30000)
 
 
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali numeri sono stati individuati tramite console.log
