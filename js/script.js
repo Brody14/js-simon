@@ -1,13 +1,16 @@
-console.log("Billy Baron");
+//console.log("Billy Baron");
 
 //Visualizzare in pagina 5 numeri casuali con alert.
 const numbers = [];
-console.log(numbers);
+const userNumbers = [];
+//console.log(numbers);
 
 while (numbers.length < 5) {
 	let number = randomNumber(1, 5000);
-	numbers.push(number);
-	console.log(numbers);
+    if(!numbers.includes(number)){
+        numbers.push(number);
+    }
+	//console.log(numbers);
 }
 
 alert(numbers);
@@ -17,22 +20,42 @@ alert(numbers);
 //tramite il prompt().
 
 setTimeout (function () {
-    let firstUserNumber = parseInt(prompt('Inserisci il primo numero'));
-    let secondUserNumber = parseInt(prompt('Inserisci il secondo numero'));
-    let thirdUserNumber = parseInt(prompt('Inserisci il terzo numero'));
-    let fourthUserNumber = parseInt(prompt('Inserisci il quarto numero'));
-    let fifthUserNumber = parseInt(prompt('Inserisci il quinto numero'));
-    console.log(firstUserNumber, secondUserNumber, thirdUserNumber, fourthUserNumber, fifthUserNumber);
+    for(let i = 0; i < 5; i++) {
+        let askNumber = parseInt(prompt('Inserisci il numero'));
+        userNumbers.push(askNumber)
+    } 
+    //console.log(userNumbers)
+    
+    //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali numeri sono stati individuati tramite console.log
+    
+    const areEqual = compareArray();
+    //console.log(areEqual)
+
+    console.log('Ne hai ricordati', areEqual.length, 'ecco quali:' +  areEqual)
+
 }, 30000)
 
 
-//Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali numeri sono stati individuati tramite console.log
+
 
 //FUNZIONI//
 
 function randomNumber(min, max) {
-	min = Math.ceil(min);
+    min = Math.ceil(min);
 	max = Math.floor(max);
 	const number = Math.floor(Math.random() * (max - min + 1) + min);
 	return number;
+}
+
+function compareArray() {
+    const areEqual = [];
+    for (let i = 0; i < numbers.length; i++) {
+        for (let r = 0; r < userNumbers.length; r++) {
+
+            if (numbers[i] === userNumbers[r]) {
+                areEqual.push(numbers[i]);
+            }
+        }
+    }
+    return areEqual;
 }
